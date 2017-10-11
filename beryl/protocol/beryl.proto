@@ -1,0 +1,40 @@
+syntax = "proto2";
+
+package beryl;
+
+message Fork {
+    required String name;
+}
+
+
+message Info {
+    required String name;
+}
+
+message List {
+
+}
+
+message Pull {
+    required String name;
+    optional String commit;
+}
+
+message Register {
+    required String name;
+    required Bytes archive;
+}
+
+message Response {
+
+}
+
+message Update {
+    required String name;
+    required String update_key;
+    required Bytes archive;
+}
+
+message Version {
+    
+}
