@@ -1,0 +1,47 @@
+@0xaa830cca44a02c39
+
+struct Version {
+    version @0 :Text;
+}
+
+struct Resolution {
+    path @0 :Text;
+}
+
+struct ActionResult {
+    failed @0 :Bool;
+    errno @1 :Int8;
+    errstring @2 :Text;
+}
+
+interface PollingResult {
+   
+    finished @0 () -> (finished :Bool);
+    result @1 () -> (result :ActionResult);
+    status @2 () -> (status :Text);
+    message @3 () -> (message :Text);
+}
+
+struct Listing {
+    name @0 :Text;
+    path @1 :Text;
+    key  @2 :Text;
+    hash @3 :Text;
+}
+
+interface Server {
+    version @0 () -> (version :Version);
+
+    resolve @1 (name :Text) -> (resolution :Resolution);
+
+    register @2 () -> (result :ActionResult);
+
+    update @3 () -> (result: ActionResult);
+    
+    fork @4 () -> (result: Text);
+    
+    pull @5 () -> (result: PollingResult);
+    
+    list @6 () -> (result :List(Listing));
+    
+}
