@@ -50,7 +50,7 @@ class ActualServerImpl(Server):
 				 *args,
 				 **kwars):
 		super(*args, **kwargs)
-		self.registry
+		self.registry = tinydb.TinyDB(registry)
 		
 		
 	
