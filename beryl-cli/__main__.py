@@ -10,7 +10,7 @@ Usage:
     beryl fork <name>
     beryl pull <name>
     beryl list
-	beryl del <name>...
+    beryl del <name>...
     beryl version
     beryl help
     beryl <name> [<commit>]
@@ -25,9 +25,11 @@ from docpie import docpie
 from halo import Halo
 from sys import argv
 from protocol.beryl_capnp import Server
-import os
+import os, os.path
 
-host = os.environ.get('BERYL_SOCKET', '')
+host = os.environ.get('BERYL_SOCKET', '/var/run/beryl.sock')
+
+
 
 dispatch = {}
 
